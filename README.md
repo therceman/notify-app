@@ -3,10 +3,7 @@
 Application for sending notification using queue.
 
 Not Implemented Yet
-1) Clients list is not paginated 
-2) Notifications list is not paginated
-3) Notifications list cannot be filtered by client
-4) Create multiple notifications is not possible (only one per request)
+1) Create multiple notifications per request
 
 ## Requirements
 
