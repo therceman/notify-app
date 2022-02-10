@@ -12,9 +12,8 @@ framework:
                     delay: 500
                 options:
                     exchange:
-                        name: notification.email.send
+                        name: notification.send
                         type: direct
-                        default_publish_key: normal
                     queues:
                         message_normal:
                             binding_keys: [normal]

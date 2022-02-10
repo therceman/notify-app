@@ -5,9 +5,7 @@ apt-get install -y \
 libpq-dev zlib1g-dev libxml2-dev librabbitmq-dev git openssh-client unzip vim libpng-dev curl libzip-dev
 
 RUN docker-php-ext-install pdo pdo_pgsql pgsql sockets zip soap gd
-RUN ln -s /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
-RUN sed -i -e 's/;extension=pgsql/extension=pgsql/' /usr/local/etc/php/php.ini
-RUN sed -i -e 's/;extension=pdo_pgsql/extension=pdo_pgsql/' /usr/local/etc/php/php.ini
+RUN ln -s /usr/local/etc/php/php_no_errors.ini /usr/local/etc/php/php.ini
 
 RUN pecl install apcu amqp mailparse xdebug
 
