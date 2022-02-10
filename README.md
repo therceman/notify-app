@@ -41,9 +41,13 @@ Navigate to docker folder
 cd utils/docker
 ```
 
-Build & run docker
-```
+Build Docker Image
+```bash
 docker-compose build
+```
+
+Run Docker
+```bash
 docker-compose up -d
 ```
 
@@ -62,6 +66,8 @@ composer install
 Initialize Database: 
 ```bash
 symfony console doctrine:migrations:migrate
+```
+```bash
 symfony console doctrine:fixtures:load
 ```
 
@@ -96,7 +102,11 @@ http://127.0.0.1:8025
 Prepare Test Database
 ```bash
 APP_ENV=test symfony console doctrine:database:create
+```
+```bash
 APP_ENV=test symfony console doctrine:migrations:migrate
+```
+```bash
 APP_ENV=test symfony console doctrine:fixtures:load
 ```
 
@@ -104,6 +114,8 @@ Run tests
 
 ```bash
 APP_ENV=test symfony php bin/phpunit tests/Controller/ClientControllerTest.php
+```
+```bash
 APP_ENV=test symfony php bin/phpunit tests/Controller/NotificationControllerTest.php
 ```
 
