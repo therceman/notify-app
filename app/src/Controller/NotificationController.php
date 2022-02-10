@@ -49,7 +49,7 @@ class NotificationController extends AbstractController
     }
 
     /**
-     * (Auth Required) View notification by ID
+     * View notification by ID
      * 
      * @Route("/api/notification/{id}", name="notification_view", methods={"GET"})
      * 
@@ -112,7 +112,7 @@ class NotificationController extends AbstractController
     }
 
     /**
-     * (Auth Required) Add a new notification
+     * Add a new notification
      * 
      * @Route("/api/notification", name="notification_add", methods={"POST"})
      * 
@@ -193,13 +193,39 @@ class NotificationController extends AbstractController
     }
 
     /**
-     * (Auth Required) Get list of notifications
+     * Get paginated list of notifications
      * 
      * @Route("/api/notifications", name="notification_list", methods={"GET"})
      * 
+     * @OA\Parameter(
+     *     name="page",
+     *     in="query",
+     *     description="Page number",
+     *     example="1",
+     *     required=false,
+     *     @OA\Schema(type="int")
+     * )
+     * 
+     * @OA\Parameter(
+     *     name="limit",
+     *     in="query",
+     *     description="Page limit",
+     *     example="10",
+     *     required=false,
+     *     @OA\Schema(type="int")
+     * )
+     * 
+     * @OA\Parameter(
+     *     name="client_id",
+     *     in="query",
+     *     description="Client Id <div><p><i>Example</i> : 1ec88cf6-c535-6950-86db-ddf1c337345e</p></div>",
+     *     required=false,
+     *     @OA\Schema(type="string")
+     * )
+     * 
      * @OA\Response(
      *     response=Response::HTTP_OK,
-     *     description="Returns list of notifications",
+     *     description="Returns paginated list of notifications",
      *     @OA\JsonContent(type="array",
      *         @OA\Items(
      *             ref=@Model(type=Notification::class, groups={Notification::GROUP__VIEW})
@@ -210,9 +236,19 @@ class NotificationController extends AbstractController
      * @OA\Tag(name="Private API")
      * @Security(name="Bearer")
      */
-    public function list(NormalizerInterface $normalizer)
+    public function list(Request $request, NormalizerInterface $normalizer)
     {
-        $notifications = $this->repository->findAll();
+        $page = $request->query->getInt('page', 1);
+        $limit = $request->query->getInt('limit', 10);
+        $clientId = $request->query->get('client_id', null);
+
+        if (null !== $clientId && false === Uuid::isValid($clientId)) {
+            return ApiJsonResponse::error(Notification::ERROR__WRONG_CLIENT_UUID, Response::HTTP_NOT_ACCEPTABLE, 'clientId');
+        }
+
+        $criteria = (null !== $clientId) ? ['clientId' => $clientId] : [];
+
+        $notifications = $this->repository->findBy($criteria, null, $limit, ($page - 1) * $limit);
 
         $list = [];
 

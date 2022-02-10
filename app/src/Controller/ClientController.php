@@ -36,13 +36,31 @@ class ClientController extends AbstractController
     }
 
     /**
-     * (Auth Required) Get list of clients
+     * Get paginated list of clients
      * 
      * @Route("/api/clients", name="client_list", methods={"GET"})
      * 
+     * @OA\Parameter(
+     *     name="page",
+     *     in="query",
+     *     description="Page number",
+     *     example="1",
+     *     required=false,
+     *     @OA\Schema(type="int")
+     * )
+     * 
+     * @OA\Parameter(
+     *     name="limit",
+     *     in="query",
+     *     description="Page limit",
+     *     example="10",
+     *     required=false,
+     *     @OA\Schema(type="int")
+     * )
+     * 
      * @OA\Response(
      *     response=Response::HTTP_OK,
-     *     description="Returns list of clients",
+     *     description="Returns paginated list of clients",
      *     @OA\JsonContent(type="array",
      *         @OA\Items(
      *             ref=@Model(type=Client::class, groups={Client::GROUP__ADD})
@@ -53,12 +71,16 @@ class ClientController extends AbstractController
      * @OA\Tag(name="Private API")
      * @Security(name="Bearer")
      */
-    public function list(NormalizerInterface $normalizer) {
-        $clients = $this->repository->findAll();
+    public function list(Request $request, NormalizerInterface $normalizer)
+    {
+        $page = $request->query->getInt('page', 1);
+        $limit = $request->query->getInt('limit', 10);
+
+        $clients = $this->repository->findBy([], null, $limit, ($page - 1) * $limit);
 
         $list = [];
 
-        foreach($clients as $client) {
+        foreach ($clients as $client) {
             $list[] = $normalizer->normalize($client, null, ['groups' => Client::GROUP__ADD]);
         }
 

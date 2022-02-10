@@ -13,6 +13,8 @@ RUN docker-php-ext-enable apcu amqp mailparse xdebug
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install intl
 
+RUN docker-php-ext-install opcache
+
 RUN curl --location --output /usr/local/bin/composer https://getcomposer.org/composer.phar && chmod +x /usr/local/bin/composer
 RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
