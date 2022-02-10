@@ -1,4 +1,4 @@
-# Symfony Notify App
+# Symfony 5.4 Notify App
 
 Application for sending notification using queue.
 
@@ -58,7 +58,7 @@ Open bash inside Docker container. Your path will be `var/www/` where Symfony is
 docker-compose run --rm php bash
 ```
 
-Execute composer install command
+Install Dependencies
 ```
 composer install
 ```
