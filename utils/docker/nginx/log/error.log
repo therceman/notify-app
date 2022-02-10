@@ -1,0 +1,585 @@
+2022/02/10 13:42:01 [notice] 1#1: using the "epoll" event method
+2022/02/10 13:42:01 [notice] 1#1: nginx/1.20.2
+2022/02/10 13:42:01 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2022/02/10 13:42:01 [notice] 1#1: OS: Linux 5.10.16.3-microsoft-standard-WSL2
+2022/02/10 13:42:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/02/10 13:42:01 [notice] 1#1: start worker processes
+2022/02/10 13:42:01 [notice] 1#1: start worker process 31
+2022/02/10 13:42:01 [notice] 1#1: start worker process 32
+2022/02/10 13:42:01 [notice] 1#1: start worker process 33
+2022/02/10 13:42:01 [notice] 1#1: start worker process 34
+2022/02/10 13:42:01 [notice] 1#1: start worker process 35
+2022/02/10 13:42:01 [notice] 1#1: start worker process 36
+2022/02/10 13:42:01 [notice] 1#1: start worker process 37
+2022/02/10 13:42:01 [notice] 1#1: start worker process 38
+2022/02/10 13:42:01 [notice] 1#1: start worker process 39
+2022/02/10 13:42:01 [notice] 1#1: start worker process 40
+2022/02/10 13:42:01 [notice] 1#1: start worker process 41
+2022/02/10 13:42:01 [notice] 1#1: start worker process 42
+2022/02/10 13:42:01 [notice] 1#1: start worker process 43
+2022/02/10 13:42:01 [notice] 1#1: start worker process 44
+2022/02/10 13:42:01 [notice] 1#1: start worker process 45
+2022/02/10 13:42:01 [notice] 1#1: start worker process 46
+2022/02/10 13:46:59 [error] 31#31: *1 FastCGI sent in stderr: "PHP message: PHP Notice:  Constant AMQP_NOPARAM already defined in /var/www/public/index.php on line 7PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_NOPARAM', $value = 0) /var/www/public/index.php:7PHP message: PHP Notice:  Constant AMQP_DURABLE already defined in /var/www/public/index.php on line 8PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_DURABLE', $value = 2) /var/www/public/index.php:8PHP message: PHP Notice:  Constant AMQP_PASSIVE already defined in /var/www/public/index.php on line 9PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_PASSIVE', $value = 4) /var/www/public/index.php:9PHP message: PHP Notice:  Constant AMQP_EXCLUSIVE already defined in /var/www/public/index.php on line 10PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_EXCLUSIVE', $value = 8) /var/www/public/index.php:10PHP message: PHP Notice:  Constant AMQP_AUTODELETE already defined in /var/www/public/index.php on line 11PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3.
+2022/02/10 13:46:59 [error] 31#31: *1 FastCGI sent in stderr: "/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_IFUNUSED', $value = 528) /var/www/public/index.php:16PHP message: PHP Notice:  Constant AMQP_MANDATORY already defined in /var/www/public/index.php on line 17PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_MANDATORY', $value = 1024) /var/www/public/index.php:17PHP message: PHP Notice:  Constant AMQP_IMMEDIATE already defined in /var/www/public/index.php on line 18PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_IMMEDIATE', $value = 2048) /var/www/public/index.php:18PHP message: PHP Notice:  Constant AMQP_MULTIPLE already defined in /var/www/public/index.php on line 19PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_MULTIPLE', $value = 4096) /var/www/public/index.php:19PHP message: PHP Notice:  Constant AMQP_NOWAIT already defined in /var/www/public/index.php on line 20PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_NOWAIT', $value = 8192) /var/www/public/index.php:20PHP message: PHP Notice:  Constant AMQP_REQUEUE already d
+2022/02/10 13:47:00 [error] 31#31: *1 FastCGI sent in stderr: "ERS', $value = 'headers') /var/www/public/index.php:26PHP message: PHP Notice:  Constant AMQP_OS_SOCKET_TIMEOUT_ERRNO already defined in /var/www/public/index.php on line 27PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_OS_SOCKET_TIMEOUT_ERRNO', $value = 536870947) /var/www/public/index.php:27PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET http://localhost:8181/"" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 135
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::logKernelException".
+PHP message: [debug] Notified event "kernel.exception" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelException".
+PHP message: [debug] Listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelException" stopped propagation of the event "kernel.exception".
+PHP message: [debug] Listener "Symfony\Comp
+2022/02/10 13:47:00 [error] 31#31: *1 FastCGI sent in stderr: ""kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelFinishRequest"" while reading response header from upstream, client: 172.22.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "localhost:8181"
+2022/02/10 13:47:01 [error] 31#31: *1 FastCGI sent in stderr: "PHP message: PHP Notice:  Constant AMQP_NOPARAM already defined in /var/www/public/index.php on line 7PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_NOPARAM', $value = 0) /var/www/public/index.php:7PHP message: PHP Notice:  Constant AMQP_DURABLE already defined in /var/www/public/index.php on line 8PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_DURABLE', $value = 2) /var/www/public/index.php:8PHP message: PHP Notice:  Constant AMQP_PASSIVE already defined in /var/www/public/index.php on line 9PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_PASSIVE', $value = 4) /var/www/public/index.php:9PHP message: PHP Notice:  Constant AMQP_EXCLUSIVE already defined in /var/www/public/index.php on line 10PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_EXCLUSIVE', $value = 8) /var/www/public/index.php:10PHP message: PHP Notice:  Constant AMQP_AUTODELETE already defined in /var/www/public/index.php on line 11PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3.
+2022/02/10 13:47:01 [error] 31#31: *1 FastCGI sent in stderr: "/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_IFUNUSED', $value = 528) /var/www/public/index.php:16PHP message: PHP Notice:  Constant AMQP_MANDATORY already defined in /var/www/public/index.php on line 17PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_MANDATORY', $value = 1024) /var/www/public/index.php:17PHP message: PHP Notice:  Constant AMQP_IMMEDIATE already defined in /var/www/public/index.php on line 18PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_IMMEDIATE', $value = 2048) /var/www/public/index.php:18PHP message: PHP Notice:  Constant AMQP_MULTIPLE already defined in /var/www/public/index.php on line 19PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_MULTIPLE', $value = 4096) /var/www/public/index.php:19PHP message: PHP Notice:  Constant AMQP_NOWAIT already defined in /var/www/public/index.php on line 20PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_NOWAIT', $value = 8192) /var/www/public/index.php:20PHP message: PHP Notice:  Constant AMQP_REQUEUE already d
+2022/02/10 13:47:05 [error] 31#31: *1 FastCGI sent in stderr: "ERS', $value = 'headers') /var/www/public/index.php:26PHP message: PHP Notice:  Constant AMQP_OS_SOCKET_TIMEOUT_ERRNO already defined in /var/www/public/index.php on line 27PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_OS_SOCKET_TIMEOUT_ERRNO', $value = 536870947) /var/www/public/index.php:27PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET http://localhost:8181/favicon.ico" (from "http://localhost:8181/")" at /var/www/vendor/symfony/http-kernel/EventListener/RouterListener.php line 135
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [de
+2022/02/10 13:47:05 [error] 31#31: *1 FastCGI sent in stderr: "Security\Http\Firewall\ContextListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\Firewall\ContextListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\Security\Http\RememberMe\ResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventList
+2022/02/10 13:47:05 [error] 31#31: *1 FastCGI sent in stderr: "ener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelFinishRequest"" while reading response header from upstream, client: 172.22.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "localhost:8181", referrer: "http://localhost:8181/"
+2022/02/10 13:47:17 [error] 31#31: *1 FastCGI sent in stderr: "PHP message: PHP Notice:  Constant AMQP_NOPARAM already defined in /var/www/public/index.php on line 7PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_NOPARAM', $value = 0) /var/www/public/index.php:7PHP message: PHP Notice:  Constant AMQP_DURABLE already defined in /var/www/public/index.php on line 8PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_DURABLE', $value = 2) /var/www/public/index.php:8PHP message: PHP Notice:  Constant AMQP_PASSIVE already defined in /var/www/public/index.php on line 9PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_PASSIVE', $value = 4) /var/www/public/index.php:9PHP message: PHP Notice:  Constant AMQP_EXCLUSIVE already defined in /var/www/public/index.php on line 10PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_EXCLUSIVE', $value = 8) /var/www/public/index.php:10PHP message: PHP Notice:  Constant AMQP_AUTODELETE already defined in /var/www/public/index.php on line 11PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3.
+2022/02/10 13:47:17 [error] 31#31: *1 FastCGI sent in stderr: "/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_IFUNUSED', $value = 528) /var/www/public/index.php:16PHP message: PHP Notice:  Constant AMQP_MANDATORY already defined in /var/www/public/index.php on line 17PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_MANDATORY', $value = 1024) /var/www/public/index.php:17PHP message: PHP Notice:  Constant AMQP_IMMEDIATE already defined in /var/www/public/index.php on line 18PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_IMMEDIATE', $value = 2048) /var/www/public/index.php:18PHP message: PHP Notice:  Constant AMQP_MULTIPLE already defined in /var/www/public/index.php on line 19PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_MULTIPLE', $value = 4096) /var/www/public/index.php:19PHP message: PHP Notice:  Constant AMQP_NOWAIT already defined in /var/www/public/index.php on line 20PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_NOWAIT', $value = 8192) /var/www/public/index.php:20PHP message: PHP Notice:  Constant AMQP_REQUEUE already d
+2022/02/10 13:47:23 [error] 31#31: *1 FastCGI sent in stderr: "ERS', $value = 'headers') /var/www/public/index.php:26PHP message: PHP Notice:  Constant AMQP_OS_SOCKET_TIMEOUT_ERRNO already defined in /var/www/public/index.php on line 27PHP message: PHP Stack trace:PHP message: PHP   1. {main}() /var/www/public/index.php:0PHP message: PHP   2. require_once() /var/www/public/index.php:5PHP message: PHP   3. require() /var/www/vendor/autoload_runtime.php:14PHP message: PHP   4. define($constant_name = 'AMQP_OS_SOCKET_TIMEOUT_ERRNO', $value = 536870947) /var/www/public/index.php:27PHP message: [info] Matched route "app.swagger_ui".
+PHP message: [debug] Checking for authenticator support.
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\DebugHandlersListener::configure".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\ValidateRequestListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::setDefaultLocale".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelRequest".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::configureLogoutUrlGenerator".
+PHP message: [debug] Notified event "kernel.request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelRequest".
+PHP message: [debug] Notified 
+2022/02/10 13:47:23 [error] 31#31: *1 FastCGI sent in stderr: ".response" to listener "Symfony\Component\HttpKernel\EventListener\ErrorListener::removeCspHeader".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\DisallowRobotsIndexingListener::onResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.response" to listener "Symfony\Component\HttpKernel\EventListener\StreamedResponseListener::onKernelResponse".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\SessionListener::onFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener::onKernelFinishRequest".
+PHP message: [debug] Notified event "kernel.finish_request" to listener "Symfony\Component\HttpKernel\EventListener\LocaleAwareListener::onKernelFinishRequest"" while reading response header from upstream, client: 172.22.0.1, server: localhost, request: "GET /api/doc HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "localhost:8181"
+2022/02/10 14:01:21 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2022/02/10 14:01:21 [notice] 31#31: gracefully shutting down
+2022/02/10 14:01:21 [notice] 32#32: gracefully shutting down
+2022/02/10 14:01:21 [notice] 33#33: gracefully shutting down
+2022/02/10 14:01:21 [notice] 34#34: gracefully shutting down
+2022/02/10 14:01:21 [notice] 35#35: gracefully shutting down
+2022/02/10 14:01:21 [notice] 36#36: gracefully shutting down
+2022/02/10 14:01:21 [notice] 37#37: gracefully shutting down
+2022/02/10 14:01:21 [notice] 38#38: gracefully shutting down
+2022/02/10 14:01:21 [notice] 39#39: gracefully shutting down
+2022/02/10 14:01:21 [notice] 40#40: gracefully shutting down
+2022/02/10 14:01:21 [notice] 41#41: gracefully shutting down
+2022/02/10 14:01:21 [notice] 41#41: exiting
+2022/02/10 14:01:21 [notice] 42#42: gracefully shutting down
+2022/02/10 14:01:21 [notice] 43#43: gracefully shutting down
+2022/02/10 14:01:21 [notice] 44#44: gracefully shutting down
+2022/02/10 14:01:21 [notice] 45#45: gracefully shutting down
+2022/02/10 14:01:21 [notice] 46#46: gracefully shutting down
+2022/02/10 14:01:21 [notice] 31#31: exiting
+2022/02/10 14:01:21 [notice] 32#32: exiting
+2022/02/10 14:01:21 [notice] 33#33: exiting
+2022/02/10 14:01:21 [notice] 34#34: exiting
+2022/02/10 14:01:21 [notice] 35#35: exiting
+2022/02/10 14:01:21 [notice] 36#36: exiting
+2022/02/10 14:01:21 [notice] 37#37: exiting
+2022/02/10 14:01:21 [notice] 38#38: exiting
+2022/02/10 14:01:21 [notice] 39#39: exiting
+2022/02/10 14:01:21 [notice] 40#40: exiting
+2022/02/10 14:01:21 [notice] 41#41: exit
+2022/02/10 14:01:21 [notice] 42#42: exiting
+2022/02/10 14:01:21 [notice] 43#43: exiting
+2022/02/10 14:01:21 [notice] 44#44: exiting
+2022/02/10 14:01:21 [notice] 45#45: exiting
+2022/02/10 14:01:21 [notice] 46#46: exiting
+2022/02/10 14:01:21 [notice] 31#31: exit
+2022/02/10 14:01:21 [notice] 32#32: exit
+2022/02/10 14:01:21 [notice] 33#33: exit
+2022/02/10 14:01:21 [notice] 34#34: exit
+2022/02/10 14:01:21 [notice] 35#35: exit
+2022/02/10 14:01:21 [notice] 36#36: exit
+2022/02/10 14:01:21 [notice] 37#37: exit
+2022/02/10 14:01:21 [notice] 38#38: exit
+2022/02/10 14:01:21 [notice] 39#39: exit
+2022/02/10 14:01:21 [notice] 40#40: exit
+2022/02/10 14:01:21 [notice] 42#42: exit
+2022/02/10 14:01:21 [notice] 43#43: exit
+2022/02/10 14:01:21 [notice] 44#44: exit
+2022/02/10 14:01:21 [notice] 45#45: exit
+2022/02/10 14:01:21 [notice] 46#46: exit
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2022/02/10 14:01:21 [notice] 1#1: worker process 32 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 34 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 37 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 40 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2022/02/10 14:01:21 [notice] 1#1: worker process 31 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 33 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 36 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 38 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 39 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 41 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 42 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 45 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2022/02/10 14:01:21 [notice] 1#1: worker process 43 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: worker process 46 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 46
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2022/02/10 14:01:21 [notice] 1#1: worker process 35 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:01:21 [notice] 1#1: signal 17 (SIGCHLD) received from 44
+2022/02/10 14:01:21 [notice] 1#1: worker process 44 exited with code 0
+2022/02/10 14:01:21 [notice] 1#1: exit
+2022/02/10 14:01:46 [notice] 1#1: using the "epoll" event method
+2022/02/10 14:01:46 [notice] 1#1: nginx/1.20.2
+2022/02/10 14:01:46 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2022/02/10 14:01:46 [notice] 1#1: OS: Linux 5.10.16.3-microsoft-standard-WSL2
+2022/02/10 14:01:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/02/10 14:01:46 [notice] 1#1: start worker processes
+2022/02/10 14:01:46 [notice] 1#1: start worker process 31
+2022/02/10 14:01:46 [notice] 1#1: start worker process 32
+2022/02/10 14:01:46 [notice] 1#1: start worker process 33
+2022/02/10 14:01:46 [notice] 1#1: start worker process 34
+2022/02/10 14:01:46 [notice] 1#1: start worker process 35
+2022/02/10 14:01:46 [notice] 1#1: start worker process 36
+2022/02/10 14:01:46 [notice] 1#1: start worker process 37
+2022/02/10 14:01:46 [notice] 1#1: start worker process 38
+2022/02/10 14:01:46 [notice] 1#1: start worker process 39
+2022/02/10 14:01:46 [notice] 1#1: start worker process 40
+2022/02/10 14:01:46 [notice] 1#1: start worker process 41
+2022/02/10 14:01:46 [notice] 1#1: start worker process 42
+2022/02/10 14:01:46 [notice] 1#1: start worker process 43
+2022/02/10 14:01:46 [notice] 1#1: start worker process 44
+2022/02/10 14:01:46 [notice] 1#1: start worker process 45
+2022/02/10 14:01:46 [notice] 1#1: start worker process 46
+2022/02/10 14:02:34 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2022/02/10 14:02:34 [notice] 31#31: gracefully shutting down
+2022/02/10 14:02:34 [notice] 42#42: gracefully shutting down
+2022/02/10 14:02:34 [notice] 32#32: gracefully shutting down
+2022/02/10 14:02:34 [notice] 33#33: gracefully shutting down
+2022/02/10 14:02:34 [notice] 34#34: gracefully shutting down
+2022/02/10 14:02:34 [notice] 35#35: gracefully shutting down
+2022/02/10 14:02:34 [notice] 36#36: gracefully shutting down
+2022/02/10 14:02:34 [notice] 37#37: gracefully shutting down
+2022/02/10 14:02:34 [notice] 38#38: gracefully shutting down
+2022/02/10 14:02:34 [notice] 39#39: gracefully shutting down
+2022/02/10 14:02:34 [notice] 40#40: gracefully shutting down
+2022/02/10 14:02:34 [notice] 41#41: gracefully shutting down
+2022/02/10 14:02:34 [notice] 43#43: gracefully shutting down
+2022/02/10 14:02:34 [notice] 44#44: gracefully shutting down
+2022/02/10 14:02:34 [notice] 45#45: gracefully shutting down
+2022/02/10 14:02:34 [notice] 31#31: exiting
+2022/02/10 14:02:34 [notice] 46#46: gracefully shutting down
+2022/02/10 14:02:34 [notice] 42#42: exiting
+2022/02/10 14:02:34 [notice] 32#32: exiting
+2022/02/10 14:02:34 [notice] 33#33: exiting
+2022/02/10 14:02:34 [notice] 34#34: exiting
+2022/02/10 14:02:34 [notice] 35#35: exiting
+2022/02/10 14:02:34 [notice] 36#36: exiting
+2022/02/10 14:02:34 [notice] 37#37: exiting
+2022/02/10 14:02:34 [notice] 36#36: exit
+2022/02/10 14:02:34 [notice] 38#38: exiting
+2022/02/10 14:02:34 [notice] 39#39: exiting
+2022/02/10 14:02:34 [notice] 40#40: exiting
+2022/02/10 14:02:34 [notice] 41#41: exiting
+2022/02/10 14:02:34 [notice] 43#43: exiting
+2022/02/10 14:02:34 [notice] 44#44: exiting
+2022/02/10 14:02:34 [notice] 45#45: exiting
+2022/02/10 14:02:34 [notice] 31#31: exit
+2022/02/10 14:02:34 [notice] 46#46: exiting
+2022/02/10 14:02:34 [notice] 42#42: exit
+2022/02/10 14:02:34 [notice] 32#32: exit
+2022/02/10 14:02:34 [notice] 33#33: exit
+2022/02/10 14:02:34 [notice] 34#34: exit
+2022/02/10 14:02:34 [notice] 35#35: exit
+2022/02/10 14:02:34 [notice] 37#37: exit
+2022/02/10 14:02:34 [notice] 38#38: exit
+2022/02/10 14:02:34 [notice] 39#39: exit
+2022/02/10 14:02:34 [notice] 40#40: exit
+2022/02/10 14:02:34 [notice] 41#41: exit
+2022/02/10 14:02:34 [notice] 43#43: exit
+2022/02/10 14:02:34 [notice] 44#44: exit
+2022/02/10 14:02:34 [notice] 45#45: exit
+2022/02/10 14:02:34 [notice] 46#46: exit
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2022/02/10 14:02:34 [notice] 1#1: worker process 34 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 36 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 39 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 44 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2022/02/10 14:02:34 [notice] 1#1: worker process 31 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 32 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 38 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 43 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2022/02/10 14:02:34 [notice] 1#1: worker process 33 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 37 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2022/02/10 14:02:34 [notice] 1#1: worker process 35 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 41 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 42 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 45 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2022/02/10 14:02:34 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2022/02/10 14:02:34 [notice] 1#1: worker process 40 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: worker process 46 exited with code 0
+2022/02/10 14:02:34 [notice] 1#1: exit
+2022/02/10 14:03:06 [notice] 1#1: using the "epoll" event method
+2022/02/10 14:03:06 [notice] 1#1: nginx/1.20.2
+2022/02/10 14:03:06 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2022/02/10 14:03:06 [notice] 1#1: OS: Linux 5.10.16.3-microsoft-standard-WSL2
+2022/02/10 14:03:06 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/02/10 14:03:06 [notice] 1#1: start worker processes
+2022/02/10 14:03:06 [notice] 1#1: start worker process 32
+2022/02/10 14:03:06 [notice] 1#1: start worker process 33
+2022/02/10 14:03:06 [notice] 1#1: start worker process 34
+2022/02/10 14:03:06 [notice] 1#1: start worker process 35
+2022/02/10 14:03:06 [notice] 1#1: start worker process 36
+2022/02/10 14:03:06 [notice] 1#1: start worker process 37
+2022/02/10 14:03:06 [notice] 1#1: start worker process 38
+2022/02/10 14:03:06 [notice] 1#1: start worker process 39
+2022/02/10 14:03:06 [notice] 1#1: start worker process 40
+2022/02/10 14:03:06 [notice] 1#1: start worker process 41
+2022/02/10 14:03:06 [notice] 1#1: start worker process 42
+2022/02/10 14:03:06 [notice] 1#1: start worker process 43
+2022/02/10 14:03:06 [notice] 1#1: start worker process 44
+2022/02/10 14:03:06 [notice] 1#1: start worker process 45
+2022/02/10 14:03:06 [notice] 1#1: start worker process 46
+2022/02/10 14:03:06 [notice] 1#1: start worker process 47
+2022/02/10 14:23:59 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2022/02/10 14:23:59 [notice] 32#32: gracefully shutting down
+2022/02/10 14:23:59 [notice] 45#45: gracefully shutting down
+2022/02/10 14:23:59 [notice] 33#33: gracefully shutting down
+2022/02/10 14:23:59 [notice] 34#34: gracefully shutting down
+2022/02/10 14:23:59 [notice] 35#35: gracefully shutting down
+2022/02/10 14:23:59 [notice] 36#36: gracefully shutting down
+2022/02/10 14:23:59 [notice] 37#37: gracefully shutting down
+2022/02/10 14:23:59 [notice] 38#38: gracefully shutting down
+2022/02/10 14:23:59 [notice] 38#38: exiting
+2022/02/10 14:23:59 [notice] 39#39: gracefully shutting down
+2022/02/10 14:23:59 [notice] 38#38: exit
+2022/02/10 14:23:59 [notice] 40#40: gracefully shutting down
+2022/02/10 14:23:59 [notice] 41#41: gracefully shutting down
+2022/02/10 14:23:59 [notice] 42#42: gracefully shutting down
+2022/02/10 14:23:59 [notice] 43#43: gracefully shutting down
+2022/02/10 14:23:59 [notice] 44#44: gracefully shutting down
+2022/02/10 14:23:59 [notice] 46#46: gracefully shutting down
+2022/02/10 14:23:59 [notice] 32#32: exiting
+2022/02/10 14:23:59 [notice] 47#47: gracefully shutting down
+2022/02/10 14:23:59 [notice] 45#45: exiting
+2022/02/10 14:23:59 [notice] 33#33: exiting
+2022/02/10 14:23:59 [notice] 34#34: exiting
+2022/02/10 14:23:59 [notice] 35#35: exiting
+2022/02/10 14:23:59 [notice] 36#36: exiting
+2022/02/10 14:23:59 [notice] 37#37: exiting
+2022/02/10 14:23:59 [notice] 39#39: exiting
+2022/02/10 14:23:59 [notice] 40#40: exiting
+2022/02/10 14:23:59 [notice] 41#41: exiting
+2022/02/10 14:23:59 [notice] 42#42: exiting
+2022/02/10 14:23:59 [notice] 41#41: exit
+2022/02/10 14:23:59 [notice] 43#43: exiting
+2022/02/10 14:23:59 [notice] 44#44: exiting
+2022/02/10 14:23:59 [notice] 46#46: exiting
+2022/02/10 14:23:59 [notice] 32#32: exit
+2022/02/10 14:23:59 [notice] 47#47: exiting
+2022/02/10 14:23:59 [notice] 45#45: exit
+2022/02/10 14:23:59 [notice] 33#33: exit
+2022/02/10 14:23:59 [notice] 34#34: exit
+2022/02/10 14:23:59 [notice] 35#35: exit
+2022/02/10 14:23:59 [notice] 36#36: exit
+2022/02/10 14:23:59 [notice] 37#37: exit
+2022/02/10 14:23:59 [notice] 39#39: exit
+2022/02/10 14:23:59 [notice] 40#40: exit
+2022/02/10 14:23:59 [notice] 42#42: exit
+2022/02/10 14:23:59 [notice] 43#43: exit
+2022/02/10 14:23:59 [notice] 44#44: exit
+2022/02/10 14:23:59 [notice] 46#46: exit
+2022/02/10 14:23:59 [notice] 47#47: exit
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2022/02/10 14:23:59 [notice] 1#1: worker process 36 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 38 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 39 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 43 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 44 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 46 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 47 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 43
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2022/02/10 14:23:59 [notice] 1#1: worker process 33 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 37 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2022/02/10 14:23:59 [notice] 1#1: worker process 41 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 45 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2022/02/10 14:23:59 [notice] 1#1: worker process 32 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 35 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: worker process 40 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2022/02/10 14:23:59 [notice] 1#1: worker process 42 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:23:59 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2022/02/10 14:23:59 [notice] 1#1: worker process 34 exited with code 0
+2022/02/10 14:23:59 [notice] 1#1: exit
+2022/02/10 14:24:07 [notice] 1#1: using the "epoll" event method
+2022/02/10 14:24:07 [notice] 1#1: nginx/1.20.2
+2022/02/10 14:24:07 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2022/02/10 14:24:07 [notice] 1#1: OS: Linux 5.10.16.3-microsoft-standard-WSL2
+2022/02/10 14:24:07 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/02/10 14:24:07 [notice] 1#1: start worker processes
+2022/02/10 14:24:07 [notice] 1#1: start worker process 31
+2022/02/10 14:24:07 [notice] 1#1: start worker process 32
+2022/02/10 14:24:07 [notice] 1#1: start worker process 33
+2022/02/10 14:24:07 [notice] 1#1: start worker process 34
+2022/02/10 14:24:07 [notice] 1#1: start worker process 35
+2022/02/10 14:24:07 [notice] 1#1: start worker process 36
+2022/02/10 14:24:07 [notice] 1#1: start worker process 37
+2022/02/10 14:24:07 [notice] 1#1: start worker process 38
+2022/02/10 14:24:07 [notice] 1#1: start worker process 39
+2022/02/10 14:24:07 [notice] 1#1: start worker process 40
+2022/02/10 14:24:07 [notice] 1#1: start worker process 41
+2022/02/10 14:24:07 [notice] 1#1: start worker process 42
+2022/02/10 14:24:07 [notice] 1#1: start worker process 43
+2022/02/10 14:24:07 [notice] 1#1: start worker process 44
+2022/02/10 14:24:07 [notice] 1#1: start worker process 45
+2022/02/10 14:24:07 [notice] 1#1: start worker process 46
+2022/02/10 14:27:48 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2022/02/10 14:27:48 [notice] 31#31: gracefully shutting down
+2022/02/10 14:27:48 [notice] 43#43: gracefully shutting down
+2022/02/10 14:27:48 [notice] 32#32: gracefully shutting down
+2022/02/10 14:27:48 [notice] 33#33: gracefully shutting down
+2022/02/10 14:27:48 [notice] 34#34: gracefully shutting down
+2022/02/10 14:27:48 [notice] 35#35: gracefully shutting down
+2022/02/10 14:27:48 [notice] 36#36: gracefully shutting down
+2022/02/10 14:27:48 [notice] 37#37: gracefully shutting down
+2022/02/10 14:27:48 [notice] 37#37: exiting
+2022/02/10 14:27:48 [notice] 38#38: gracefully shutting down
+2022/02/10 14:27:48 [notice] 39#39: gracefully shutting down
+2022/02/10 14:27:48 [notice] 40#40: gracefully shutting down
+2022/02/10 14:27:48 [notice] 40#40: exiting
+2022/02/10 14:27:48 [notice] 41#41: gracefully shutting down
+2022/02/10 14:27:48 [notice] 42#42: gracefully shutting down
+2022/02/10 14:27:48 [notice] 31#31: exiting
+2022/02/10 14:27:48 [notice] 44#44: gracefully shutting down
+2022/02/10 14:27:48 [notice] 45#45: gracefully shutting down
+2022/02/10 14:27:48 [notice] 46#46: gracefully shutting down
+2022/02/10 14:27:48 [notice] 46#46: exiting
+2022/02/10 14:27:48 [notice] 43#43: exiting
+2022/02/10 14:27:48 [notice] 32#32: exiting
+2022/02/10 14:27:48 [notice] 33#33: exiting
+2022/02/10 14:27:48 [notice] 34#34: exiting
+2022/02/10 14:27:48 [notice] 35#35: exiting
+2022/02/10 14:27:48 [notice] 36#36: exiting
+2022/02/10 14:27:48 [notice] 37#37: exit
+2022/02/10 14:27:48 [notice] 38#38: exiting
+2022/02/10 14:27:48 [notice] 39#39: exiting
+2022/02/10 14:27:48 [notice] 40#40: exit
+2022/02/10 14:27:48 [notice] 41#41: exiting
+2022/02/10 14:27:48 [notice] 42#42: exiting
+2022/02/10 14:27:48 [notice] 31#31: exit
+2022/02/10 14:27:48 [notice] 44#44: exiting
+2022/02/10 14:27:48 [notice] 45#45: exiting
+2022/02/10 14:27:48 [notice] 46#46: exit
+2022/02/10 14:27:48 [notice] 43#43: exit
+2022/02/10 14:27:48 [notice] 32#32: exit
+2022/02/10 14:27:48 [notice] 33#33: exit
+2022/02/10 14:27:48 [notice] 34#34: exit
+2022/02/10 14:27:48 [notice] 35#35: exit
+2022/02/10 14:27:48 [notice] 36#36: exit
+2022/02/10 14:27:48 [notice] 38#38: exit
+2022/02/10 14:27:48 [notice] 39#39: exit
+2022/02/10 14:27:48 [notice] 41#41: exit
+2022/02/10 14:27:48 [notice] 42#42: exit
+2022/02/10 14:27:48 [notice] 44#44: exit
+2022/02/10 14:27:48 [notice] 45#45: exit
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2022/02/10 14:27:48 [notice] 1#1: worker process 35 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 39 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 41 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 44 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 40
+2022/02/10 14:27:48 [notice] 1#1: worker process 31 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 32 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 36 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 40 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2022/02/10 14:27:48 [notice] 1#1: worker process 33 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 34 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 37 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 43 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 45 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 46
+2022/02/10 14:27:48 [notice] 1#1: worker process 46 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:27:48 [notice] 1#1: signal 17 (SIGCHLD) received from 38
+2022/02/10 14:27:48 [notice] 1#1: worker process 38 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: worker process 42 exited with code 0
+2022/02/10 14:27:48 [notice] 1#1: exit
+2022/02/10 14:28:18 [notice] 1#1: using the "epoll" event method
+2022/02/10 14:28:18 [notice] 1#1: nginx/1.20.2
+2022/02/10 14:28:18 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2022/02/10 14:28:18 [notice] 1#1: OS: Linux 5.10.16.3-microsoft-standard-WSL2
+2022/02/10 14:28:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/02/10 14:28:18 [notice] 1#1: start worker processes
+2022/02/10 14:28:18 [notice] 1#1: start worker process 31
+2022/02/10 14:28:18 [notice] 1#1: start worker process 32
+2022/02/10 14:28:18 [notice] 1#1: start worker process 33
+2022/02/10 14:28:18 [notice] 1#1: start worker process 34
+2022/02/10 14:28:18 [notice] 1#1: start worker process 35
+2022/02/10 14:28:18 [notice] 1#1: start worker process 36
+2022/02/10 14:28:18 [notice] 1#1: start worker process 37
+2022/02/10 14:28:18 [notice] 1#1: start worker process 38
+2022/02/10 14:28:18 [notice] 1#1: start worker process 39
+2022/02/10 14:28:18 [notice] 1#1: start worker process 40
+2022/02/10 14:28:18 [notice] 1#1: start worker process 41
+2022/02/10 14:28:18 [notice] 1#1: start worker process 42
+2022/02/10 14:28:18 [notice] 1#1: start worker process 43
+2022/02/10 14:28:18 [notice] 1#1: start worker process 44
+2022/02/10 14:28:18 [notice] 1#1: start worker process 45
+2022/02/10 14:28:18 [notice] 1#1: start worker process 46
+2022/02/10 14:31:16 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2022/02/10 14:31:16 [notice] 31#31: gracefully shutting down
+2022/02/10 14:31:16 [notice] 40#40: gracefully shutting down
+2022/02/10 14:31:16 [notice] 32#32: gracefully shutting down
+2022/02/10 14:31:16 [notice] 33#33: gracefully shutting down
+2022/02/10 14:31:16 [notice] 34#34: gracefully shutting down
+2022/02/10 14:31:16 [notice] 34#34: exiting
+2022/02/10 14:31:16 [notice] 35#35: gracefully shutting down
+2022/02/10 14:31:16 [notice] 36#36: gracefully shutting down
+2022/02/10 14:31:16 [notice] 36#36: exiting
+2022/02/10 14:31:16 [notice] 37#37: gracefully shutting down
+2022/02/10 14:31:16 [notice] 38#38: gracefully shutting down
+2022/02/10 14:31:16 [notice] 39#39: gracefully shutting down
+2022/02/10 14:31:16 [notice] 41#41: gracefully shutting down
+2022/02/10 14:31:16 [notice] 31#31: exiting
+2022/02/10 14:31:16 [notice] 42#42: gracefully shutting down
+2022/02/10 14:31:16 [notice] 43#43: gracefully shutting down
+2022/02/10 14:31:16 [notice] 44#44: gracefully shutting down
+2022/02/10 14:31:16 [notice] 45#45: gracefully shutting down
+2022/02/10 14:31:16 [notice] 46#46: gracefully shutting down
+2022/02/10 14:31:16 [notice] 40#40: exiting
+2022/02/10 14:31:16 [notice] 32#32: exiting
+2022/02/10 14:31:16 [notice] 40#40: exit
+2022/02/10 14:31:16 [notice] 33#33: exiting
+2022/02/10 14:31:16 [notice] 34#34: exit
+2022/02/10 14:31:16 [notice] 35#35: exiting
+2022/02/10 14:31:16 [notice] 36#36: exit
+2022/02/10 14:31:16 [notice] 37#37: exiting
+2022/02/10 14:31:16 [notice] 38#38: exiting
+2022/02/10 14:31:16 [notice] 39#39: exiting
+2022/02/10 14:31:16 [notice] 41#41: exiting
+2022/02/10 14:31:16 [notice] 31#31: exit
+2022/02/10 14:31:16 [notice] 42#42: exiting
+2022/02/10 14:31:16 [notice] 43#43: exiting
+2022/02/10 14:31:16 [notice] 44#44: exiting
+2022/02/10 14:31:16 [notice] 45#45: exiting
+2022/02/10 14:31:16 [notice] 46#46: exiting
+2022/02/10 14:31:16 [notice] 45#45: exit
+2022/02/10 14:31:16 [notice] 32#32: exit
+2022/02/10 14:31:16 [notice] 33#33: exit
+2022/02/10 14:31:16 [notice] 35#35: exit
+2022/02/10 14:31:16 [notice] 37#37: exit
+2022/02/10 14:31:16 [notice] 38#38: exit
+2022/02/10 14:31:16 [notice] 39#39: exit
+2022/02/10 14:31:16 [notice] 41#41: exit
+2022/02/10 14:31:16 [notice] 42#42: exit
+2022/02/10 14:31:16 [notice] 43#43: exit
+2022/02/10 14:31:16 [notice] 44#44: exit
+2022/02/10 14:31:16 [notice] 46#46: exit
+2022/02/10 14:31:16 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+2022/02/10 14:31:16 [notice] 1#1: worker process 31 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 32 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 33 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 34 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 36 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 37 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 38 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 40 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 42 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 43 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 46 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:31:16 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2022/02/10 14:31:16 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+2022/02/10 14:31:16 [notice] 1#1: worker process 39 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 44 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 45 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: signal 29 (SIGIO) received
+2022/02/10 14:31:16 [notice] 1#1: signal 17 (SIGCHLD) received from 39
+2022/02/10 14:31:16 [notice] 1#1: signal 17 (SIGCHLD) received from 41
+2022/02/10 14:31:16 [notice] 1#1: worker process 35 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: worker process 41 exited with code 0
+2022/02/10 14:31:16 [notice] 1#1: exit
+2022/02/10 14:32:02 [notice] 1#1: using the "epoll" event method
+2022/02/10 14:32:02 [notice] 1#1: nginx/1.20.2
+2022/02/10 14:32:02 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2022/02/10 14:32:02 [notice] 1#1: OS: Linux 5.10.16.3-microsoft-standard-WSL2
+2022/02/10 14:32:02 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2022/02/10 14:32:02 [notice] 1#1: start worker processes
+2022/02/10 14:32:02 [notice] 1#1: start worker process 31
+2022/02/10 14:32:02 [notice] 1#1: start worker process 32
+2022/02/10 14:32:02 [notice] 1#1: start worker process 33
+2022/02/10 14:32:02 [notice] 1#1: start worker process 34
+2022/02/10 14:32:02 [notice] 1#1: start worker process 35
+2022/02/10 14:32:02 [notice] 1#1: start worker process 36
+2022/02/10 14:32:02 [notice] 1#1: start worker process 37
+2022/02/10 14:32:02 [notice] 1#1: start worker process 38
+2022/02/10 14:32:02 [notice] 1#1: start worker process 39
+2022/02/10 14:32:02 [notice] 1#1: start worker process 40
+2022/02/10 14:32:02 [notice] 1#1: start worker process 41
+2022/02/10 14:32:02 [notice] 1#1: start worker process 42
+2022/02/10 14:32:02 [notice] 1#1: start worker process 43
+2022/02/10 14:32:02 [notice] 1#1: start worker process 44
+2022/02/10 14:32:02 [notice] 1#1: start worker process 45
+2022/02/10 14:32:02 [notice] 1#1: start worker process 46
