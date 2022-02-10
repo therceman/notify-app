@@ -155,12 +155,12 @@ class Notification
         return $this;
     }
 
-    public function getProcessedAt(): ?\DateTimeImmutable
+    public function getProcessedAt(): ?\DateTime
     {
         return $this->processedAt;
     }
 
-    public function setProcessedAt(?\DateTimeImmutable $processedAt): self
+    public function setProcessedAt(?\DateTime $processedAt): self
     {
         $this->processedAt = $processedAt;
 

@@ -36,6 +36,36 @@ class ClientController extends AbstractController
     }
 
     /**
+     * (Auth Required) Get list of clients
+     * 
+     * @Route("/api/clients", name="client_list", methods={"GET"})
+     * 
+     * @OA\Response(
+     *     response=Response::HTTP_OK,
+     *     description="Returns list of clients",
+     *     @OA\JsonContent(type="array",
+     *         @OA\Items(
+     *             ref=@Model(type=Client::class, groups={Client::GROUP__ADD})
+     *         )
+     *     )
+     * )
+     * 
+     * @OA\Tag(name="Private API")
+     * @Security(name="Bearer")
+     */
+    public function list(NormalizerInterface $normalizer) {
+        $clients = $this->repository->findAll();
+
+        $list = [];
+
+        foreach($clients as $client) {
+            $list[] = $normalizer->normalize($client, null, ['groups' => Client::GROUP__ADD]);
+        }
+
+        return ApiJsonResponse::ok($list);
+    }
+
+    /**
      * Add a new client
      * 
      * @Route("/api/client", name="client_add", methods={"POST"})

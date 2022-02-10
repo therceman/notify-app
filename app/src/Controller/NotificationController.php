@@ -171,7 +171,7 @@ class NotificationController extends AbstractController
         $entityManager->flush();
 
         if (Notification::CHANNEL_EMAIL === $notification->getChannel()) {
-            $emailMessage = new SendEmailNotification($client->getEmail(), $notification->getContent());
+            $emailMessage = new SendEmailNotification($notification->getId(), $client->getEmail(), $notification->getContent());
             $envelope = new Envelope($emailMessage, [
                 new AmqpStamp('normal')
             ]);
@@ -181,5 +181,35 @@ class NotificationController extends AbstractController
         $notification = $this->normalizer->normalize($notification, null, ['groups' => Notification::GROUP__VIEW]);
 
         return ApiJsonResponse::ok($notification);
+    }
+
+    /**
+     * (Auth Required) Get list of notifications
+     * 
+     * @Route("/api/notifications", name="notification_list", methods={"GET"})
+     * 
+     * @OA\Response(
+     *     response=Response::HTTP_OK,
+     *     description="Returns list of notifications",
+     *     @OA\JsonContent(type="array",
+     *         @OA\Items(
+     *             ref=@Model(type=Notification::class, groups={Notification::GROUP__VIEW})
+     *         )
+     *     )
+     * )
+     * 
+     * @OA\Tag(name="Private API")
+     * @Security(name="Bearer")
+     */
+    public function list(NormalizerInterface $normalizer) {
+        $notifications = $this->repository->findAll();
+
+        $list = [];
+
+        foreach($notifications as $notification) {
+            $list[] = $normalizer->normalize($notification, null, ['groups' => Notification::GROUP__VIEW]);
+        }
+
+        return ApiJsonResponse::ok($list);
     }
 }

@@ -11,7 +11,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         api:
-            pattern: ^/api/(notification|client_list)
+            pattern: ^/api/(notification|clients)
             custom_authenticators:
                 - App\Security\ApiAuthenticator
         main:

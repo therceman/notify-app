@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "150f157970f4199203d72f06a701e63b",
+    "content-hash": "bdfa98e4a5ff5e8ec3ae5bf52adeb43e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1639,6 +1639,52 @@
                 "source": "https://github.com/giggsey/Locale/tree/2.1"
             },
             "time": "2021-11-04T19:12:22+00:00"
+        },
+        {
+            "name": "javihgil/doctrine-pagination",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javihgil/doctrine-pagination.git",
+                "reference": "4a6dae5ca59a87a491a88595577486e4ee071a53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/javihgil/doctrine-pagination/zipball/4a6dae5ca59a87a491a88595577486e4ee071a53",
+                "reference": "4a6dae5ca59a87a491a88595577486e4ee071a53",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "~2.8",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jhg\\DoctrinePagination\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Doctrine pagination",
+            "support": {
+                "issues": "https://github.com/javihgil/doctrine-pagination/issues",
+                "source": "https://github.com/javihgil/doctrine-pagination/tree/v1.1.1"
+            },
+            "time": "2021-05-10T12:56:55+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -9822,7 +9868,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "javihgil/doctrine-pagination": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
@@ -9831,5 +9879,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

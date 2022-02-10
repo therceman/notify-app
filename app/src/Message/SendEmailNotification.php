@@ -6,9 +6,12 @@ final class SendEmailNotification
 {
 
     private $email;
+    private $id;
+    private $content;
 
-    public function __construct(string $email, string $content = 'hello')
+    public function __construct(string $id, string $email, string $content)
     {
+        $this->id = $id;
         $this->email = $email;
         $this->content = $content;
     }
@@ -21,5 +24,10 @@ final class SendEmailNotification
     public function getContent(): string
     {
         return $this->content;
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
     }
 }

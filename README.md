@@ -54,6 +54,11 @@ symfony console doctrine:migrations:migrate
 symfony console doctrine:fixtures:load
 ```
 
+#### 3) Start Queue Worker (Message Consumer)
+```bash
+symfony console messenger:consume async -vv
+```
+
 ## Exposed Services
 
 ### Swagger API Documentation
