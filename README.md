@@ -53,7 +53,7 @@ docker-compose up -d
 
 #### 2) Install Symfony Dependencies & Init Database
 
-Open bash inside Docker container. Your path will be `var/www/` where Symfony is installed
+Open bash inside Docker container to path `var/www/` (Symfony root folder)
 ```bash
 docker-compose run --rm php bash
 ```
@@ -65,10 +65,10 @@ composer install
 
 Initialize Database: 
 ```bash
-symfony console doctrine:migrations:migrate
+symfony console doctrine:migrations:migrate --no-interaction
 ```
 ```bash
-symfony console doctrine:fixtures:load
+symfony console doctrine:fixtures:load --no-interaction
 ```
 
 #### 3) Start Queue Worker (Message Consumer)
@@ -101,13 +101,13 @@ http://127.0.0.1:8025
 
 Prepare Test Database
 ```bash
-APP_ENV=test symfony console doctrine:database:create
+APP_ENV=test symfony console doctrine:database:create --no-interaction
 ```
 ```bash
-APP_ENV=test symfony console doctrine:migrations:migrate
+APP_ENV=test symfony console doctrine:migrations:migrate --no-interaction
 ```
 ```bash
-APP_ENV=test symfony console doctrine:fixtures:load
+APP_ENV=test symfony console doctrine:fixtures:load --no-interaction
 ```
 
 Run tests
