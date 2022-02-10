@@ -54,7 +54,7 @@ symfony console doctrine:migrations:migrate
 symfony console doctrine:fixtures:load
 ```
 
-#### 3) Run Tests
+## Running Tests
 
 Prepare Test Database
 ```bash
@@ -70,7 +70,7 @@ APP_ENV=test symfony php bin/phpunit tests/Controller/ClientControllerTest.php
 APP_ENV=test symfony php bin/phpunit tests/Controller/NotificationControllerTest.php
 ```
 
-#### 4) Open Api Documentation
+## API Documentation
 
 ```
 http://127.0.0.1:8181/api/doc
