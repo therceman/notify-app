@@ -27,7 +27,7 @@ git clone https://github.com/therceman/notify-app.git
 
 ### Configuration (Optional)
 
-You can change all variables and ports defined in the utils/docker/.env file.
+You can change all variables and ports defined in the `utils/docker/.env` file.
 
 ### Installation
 
