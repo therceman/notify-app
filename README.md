@@ -54,7 +54,28 @@ symfony console doctrine:migrations:migrate
 symfony console doctrine:fixtures:load
 ```
 
-## Running Tests
+## Exposed Services
+
+### Swagger API Documentation
+
+http://127.0.0.1:8181/api/doc
+
+Use following key for `Private API` group routes
+```
+d692dfe7657f7994c9eafe3b7914d252
+```
+
+### RabbitMQ Manager
+
+http://127.0.0.1:15672
+
+Login: `guest`, Password: `guest`
+
+### MailHog UI
+
+http://127.0.0.1:8025
+
+## Running Automated Tests
 
 Prepare Test Database
 ```bash
@@ -68,17 +89,6 @@ Run tests
 ```bash
 APP_ENV=test symfony php bin/phpunit tests/Controller/ClientControllerTest.php
 APP_ENV=test symfony php bin/phpunit tests/Controller/NotificationControllerTest.php
-```
-
-## API Documentation
-
-```
-http://127.0.0.1:8181/api/doc
-```
-
-Use following key for `Private API` group routes
-```
-d692dfe7657f7994c9eafe3b7914d252
 ```
 
 ------
