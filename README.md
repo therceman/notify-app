@@ -1,6 +1,6 @@
 # Symfony 5.4 Notify App
 
-Application for sending notification using queue.
+Application for sending notifications using queue.
 
 Not Implemented Yet
 1) Create multiple notifications per request
