@@ -27,7 +27,7 @@ git clone https://github.com/therceman/notify-app.git
 
 ### Configuration (Optional)
 
-You can change all variables and ports defined in the utils/docker/.env file.
+You can change all variables and ports defined in the `utils/docker/.env` file.
 
 ### Installation
 
@@ -38,14 +38,9 @@ Navigate to docker folder
 cd notify-app/utils/docker
 ```
 
-Build Docker Image
+Build & Run Docker Image
 ```bash
-docker-compose build
-```
-
-Run Docker
-```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 #### 2) Install Symfony Dependencies & Init Database
