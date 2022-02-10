@@ -38,14 +38,9 @@ Navigate to docker folder
 cd notify-app/utils/docker
 ```
 
-Build Docker Image
+Build & Run Docker Image
 ```bash
-docker-compose build
-```
-
-Run Docker
-```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 #### 2) Install Symfony Dependencies & Init Database
