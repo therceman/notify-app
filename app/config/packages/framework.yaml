@@ -15,7 +15,7 @@ framework:
     #esi: true
     #fragments: true
     php_errors:
-        log: true
+        log: 4096
 
 when@test:
     framework:
