@@ -38,7 +38,7 @@ You can change all variables and ports defined in the utils/docker/.env file.
 
 Navigate to docker folder
 ```bash
-cd utils/docker
+cd notify-app/utils/docker
 ```
 
 Build Docker Image
