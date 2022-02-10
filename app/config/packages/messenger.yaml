@@ -23,4 +23,4 @@ framework:
 
         routing:
             # Route your messages to the transports
-            'App\Message\SendEmailNotification': async
+            'App\Message\SendNotification': async

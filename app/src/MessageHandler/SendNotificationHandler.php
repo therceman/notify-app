@@ -2,16 +2,16 @@
 
 namespace App\MessageHandler;
 
-use App\Message\SendEmailNotification;
+use App\Entity\Notification;
+use App\Message\SendNotification;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use App\Repository\NotificationRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
-final class SendEmailNotificationHandler implements MessageHandlerInterface
+final class SendNotificationHandler implements MessageHandlerInterface
 {
     private $repository;
     private $mailer;
@@ -24,7 +24,29 @@ final class SendEmailNotificationHandler implements MessageHandlerInterface
         $this->doctrine = $doctrine;
     }
 
-    public function __invoke(SendEmailNotification $message)
+    public function __invoke(SendNotification $message)
+    {
+        if ($message->getType() === Notification::CHANNEL_EMAIL)
+            $this->handleEmail($message);
+
+        if ($message->getType() === Notification::CHANNEL_SMS)
+            $this->handleSMS($message);
+    }
+
+    private function handleSMS(SendNotification $message)
+    {
+        // do nothing (sending real sms is not implemented)
+
+        $notification = $this->repository->find($message->getId());
+
+        $notification->setProcessedAt(new \DateTime('now'))->setIsProcessed(true);
+
+        $entityManager = $this->doctrine->getManager();
+        $entityManager->persist($notification);
+        $entityManager->flush();
+    }
+
+    private function handleEmail(SendNotification $message)
     {
         $templatedEmail = new TemplatedEmail();
 
@@ -33,7 +55,7 @@ final class SendEmailNotificationHandler implements MessageHandlerInterface
             ->to($message->getEmail())
             ->subject('New message {' . $message->getId() . '} from Notify App')
             ->text($message->getContent());
-        
+
         $notification = $this->repository->find($message->getId());
 
         try {

@@ -1,5 +1,13 @@
 # Symfony Notify App
 
+Application for sending notification using queue.
+
+Not Implemented Yet
+1) Clients list is not paginated 
+2) Notifications list is not paginated
+3) Notifications list filter by client
+4) Create multiple notifications (only one per request)
+
 ## Requirements
 
 * [Docker](https://docs.docker.com/engine/install/)

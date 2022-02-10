@@ -8,7 +8,7 @@ use App\Utils\ApiJsonResponse;
 use OpenApi\Annotations as OA;
 use Symfony\Component\Uid\Uuid;
 use App\Repository\ClientRepository;
-use App\Message\SendEmailNotification;
+use App\Message\SendNotification;
 use Doctrine\Persistence\ManagerRegistry;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Symfony\Component\Messenger\Envelope;
@@ -161,7 +161,7 @@ class NotificationController extends AbstractController
         }
 
         $client = $doctrine->getManager()->getRepository(Client::class)->find($notification->getClientId());
-    
+
         if (null === $client) {
             return ApiJsonResponse::error(self::ERROR__CLIENT_NOT_FOUND, Response::HTTP_NOT_ACCEPTABLE, "clientId");
         }
@@ -170,9 +170,18 @@ class NotificationController extends AbstractController
         $entityManager->persist($notification);
         $entityManager->flush();
 
+        $message = null;
+
         if (Notification::CHANNEL_EMAIL === $notification->getChannel()) {
-            $emailMessage = new SendEmailNotification($notification->getId(), $client->getEmail(), $notification->getContent());
-            $envelope = new Envelope($emailMessage, [
+            $message = SendNotification::email($notification->getId(), $notification->getContent(), $client->getEmail());
+        }
+
+        if (Notification::CHANNEL_SMS === $notification->getChannel()) {
+            $message = SendNotification::sms($notification->getId(), $notification->getContent(), $client->getPhoneNumber());
+        }
+
+        if (null !== $message) {
+            $envelope = new Envelope($message, [
                 new AmqpStamp('normal')
             ]);
             $messageBus->dispatch($envelope);
@@ -201,12 +210,13 @@ class NotificationController extends AbstractController
      * @OA\Tag(name="Private API")
      * @Security(name="Bearer")
      */
-    public function list(NormalizerInterface $normalizer) {
+    public function list(NormalizerInterface $normalizer)
+    {
         $notifications = $this->repository->findAll();
 
         $list = [];
 
-        foreach($notifications as $notification) {
+        foreach ($notifications as $notification) {
             $list[] = $normalizer->normalize($notification, null, ['groups' => Notification::GROUP__VIEW]);
         }
 
