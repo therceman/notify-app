@@ -23,7 +23,10 @@ Not Implemented Yet
 
 ## Setup
 
-Open directory after cloning.
+Clone repository and navigate to its folder
+```bash
+git clone https://github.com/therceman/notify-app.git
+```
 
 ### Configuration (Optional)
 
