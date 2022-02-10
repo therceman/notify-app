@@ -1,4 +1,4 @@
-# Symfony Notify App
+# Symfony 5.4 Notify App
 
 Application for sending notification using queue.
 
@@ -41,9 +41,13 @@ Navigate to docker folder
 cd utils/docker
 ```
 
-Build & run docker
-```
+Build Docker Image
+```bash
 docker-compose build
+```
+
+Run Docker
+```bash
 docker-compose up -d
 ```
 
@@ -54,7 +58,7 @@ Open bash inside Docker container. Your path will be `var/www/` where Symfony is
 docker-compose run --rm php bash
 ```
 
-Execute composer install command
+Install Dependencies
 ```
 composer install
 ```
@@ -62,6 +66,8 @@ composer install
 Initialize Database: 
 ```bash
 symfony console doctrine:migrations:migrate
+```
+```bash
 symfony console doctrine:fixtures:load
 ```
 
@@ -96,7 +102,11 @@ http://127.0.0.1:8025
 Prepare Test Database
 ```bash
 APP_ENV=test symfony console doctrine:database:create
+```
+```bash
 APP_ENV=test symfony console doctrine:migrations:migrate
+```
+```bash
 APP_ENV=test symfony console doctrine:fixtures:load
 ```
 
@@ -104,6 +114,8 @@ Run tests
 
 ```bash
 APP_ENV=test symfony php bin/phpunit tests/Controller/ClientControllerTest.php
+```
+```bash
 APP_ENV=test symfony php bin/phpunit tests/Controller/NotificationControllerTest.php
 ```
 
