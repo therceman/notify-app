@@ -1,6 +1,6 @@
 # Symfony 5.4 Notify App
 
-Application for sending notifications using queue.
+API Service for sending notifications using RabbitMQ with Swagger API Documentation (NelmioApiDocBundle) built on Symfony 5.4
 
 ## Requirements
 
