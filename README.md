@@ -2,9 +2,6 @@
 
 Application for sending notifications using queue.
 
-Not Implemented Yet
-1) Create multiple notifications per request
-
 ## Requirements
 
 * [Docker](https://docs.docker.com/engine/install/)
