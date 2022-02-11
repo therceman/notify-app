@@ -13,6 +13,7 @@ class ApiJsonResponse
     const FIELD__ERROR_MSG = 'error_msg';
     const FIELD__ERROR_CODE = 'error_code';
     const FIELD__INVALID_FIELD = 'invalid_field';
+    const FIELD__ERROR_CONTENT = 'content';
 
     /**
      * Response Status
@@ -57,29 +58,45 @@ class ApiJsonResponse
         return $this->content;
     }
 
-    public static function error(string $msg, $status_code = Response::HTTP_INTERNAL_SERVER_ERROR, ?string $invalid_field = null)
+    public static function fromError(string $msg, $status_code = Response::HTTP_INTERNAL_SERVER_ERROR, ?string $invalid_field = null, $content = null) 
     {
         $error_content = [];
 
         $error_content[self::FIELD__ERROR_MSG] = $msg;
         $error_content[self::FIELD__ERROR_CODE] = $status_code;
         $error_content[self::FIELD__INVALID_FIELD] = $invalid_field;
+        $error_content[self::FIELD__ERROR_CONTENT] = $content;
 
-        return (new self($error_content, false, $status_code, $msg))->build();
+        return (new self($error_content, false, $status_code, $msg));
     }
 
-    public static function ok($content, $status_code = Response::HTTP_OK)
+    public static function fromContent($content, $status_code = Response::HTTP_OK) 
     {
-        return (new self($content, true, $status_code))->build();
+        return (new self($content, true, $status_code));
     }
 
-    public function build()
+    public static function error(string $msg, $status_code = Response::HTTP_INTERNAL_SERVER_ERROR, ?string $invalid_field = null, $content = null)
+    {
+        return self::fromError($msg, $status_code, $invalid_field, $content)->build();
+    }
+
+    public static function ok($content = null, $status_code = Response::HTTP_OK)
+    {
+        return self::fromContent($content, $status_code)->build();
+    }
+
+    public function getData() 
     {
         $data = [];
 
         $data[self::FIELD__STATUS] = $this->status;
         $data[self::FIELD__CONTENT] = $this->content;
 
-        return new JsonResponse($data, $this->status_code);
+        return $data;
+    }
+
+    public function build()
+    {
+        return new JsonResponse($this->getData(), $this->status_code);
     }
 }
