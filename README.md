@@ -9,7 +9,7 @@ API Service for sending notifications using RabbitMQ with Swagger API Documentat
 
 ## Docker Services
 
-* Nginx
+* Apache
 * PostgreSQL 13
 * PHP 7.4
 * RabbitMQ
