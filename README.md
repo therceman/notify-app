@@ -15,6 +15,10 @@ API Service for sending notifications using RabbitMQ with Swagger API Documentat
 * RabbitMQ
 * MailHog
 
+## Demonstration Video
+
+[![Watch the video](https://github.com/therceman/notify/blob/master/home_task_youtube_preview.png)](https://www.youtube.com/watch?v=PuEPw3PEklE)
+
 ## Setup
 
 Clone repository and navigate to its folder
