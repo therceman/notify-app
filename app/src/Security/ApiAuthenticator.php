@@ -39,11 +39,11 @@ class ApiAuthenticator extends AbstractAuthenticator
     {
         $apiToken = $request->headers->get('Authorization', null);
 
-        if (null === $apiToken) {
+        if (null === $apiToken || false === str_contains($apiToken, 'Bearer ')) {
             throw new CustomUserMessageAuthenticationException(self::ERROR__WRONG_TOKEN);
         }
 
-        $apiToken = explode("Bearer ", $apiToken)[1];
+        $apiToken = str_replace('Bearer ', '', $apiToken);
 
         return new SelfValidatingPassport(
             new UserBadge($apiToken, function ($userIdentifier) {
