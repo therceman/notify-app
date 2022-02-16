@@ -9,11 +9,10 @@ API Service for sending notifications using RabbitMQ with Swagger API Documentat
 
 ## Docker Services
 
-* Apache
-* PostgreSQL 13
-* PHP 7.4
-* RabbitMQ
-* MailHog
+* php - [Symfony Alpine Docker](https://github.com/therceman/symfony-alpine-docker) (Apache/2.4 + PHP 7.4)
+* db - PostgreSQL (13)
+* rabbitmq - RabbitMQ (3-management)
+* mailhog - MailHog (latest)
 
 ## Demonstration Video
 
