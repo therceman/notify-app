@@ -65,4 +65,6 @@ EXPOSE 80
 
 WORKDIR /var/www/html/
 
+RUN ["chmod", "+x", "/opt/entrypoint.sh"]
+
 CMD ["/opt/entrypoint.sh"]
