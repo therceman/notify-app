@@ -45,7 +45,7 @@ docker-compose up -d --build
 
 #### 2) Install Symfony Dependencies & Init Database
 
-Open bash inside Docker container to path `var/www/` (Symfony root folder)
+Connect to Docker container. Root path will be `var/www/` (Symfony root folder)
 ```bash
 docker-compose run --rm php bash
 ```
