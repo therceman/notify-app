@@ -110,32 +110,3 @@ APP_ENV=test symfony php bin/phpunit tests/Controller/ClientControllerTest.php
 ```bash
 APP_ENV=test symfony php bin/phpunit tests/Controller/NotificationControllerTest.php
 ```
-
-------
-
-### Additional Commands
-
-Dump ENV vars
-```bash
-symfony console debug:container --env-vars
-```
-
-Reset DB
-```bash
-symfony console doctrine:database:drop --force
-```
-
-Create DB
-```bash
-symfony console doctrine:database:create
-```
-
-Stop Docker
-```bash
-docker-compose down --remove-orphans
-```
-
-Stop Docker & Remove Volumes
-```bash
-docker-compose down --remove-orphans --volumes
-```
