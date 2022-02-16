@@ -3,14 +3,19 @@ version: "3.8"
 services:
   php:
     build:
-      context: ./php/
+      context: ./symfony-alpine-docker/
       dockerfile: Dockerfile
+      args:
+        AMQP_ENABLED: ${AMQP_ENABLED}
+        NODEJS_PACKAGE_MANAGER: ${NODEJS_PACKAGE_MANAGER}
     container_name: php
     volumes:
-      - ../../app:/var/www:delegated
+      - var:/var/www/html/var
+      - vendor:/var/www/html/vendor
+      - node_modules:/var/www/html/node_modules
+      - ../../app:/var/www/html/
     ports:
-      - "${CUSTOM_PHP_PORT}:9000"
-      - "${CUSTOM_WEBSERVER_PORT:-8181}:80"
+      - "${APACHE_EXTERNAL_PORT:-8181}:80"
     env_file:
       - .env
     networks:
@@ -59,3 +64,8 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  var:
+  vendor:
+  node_modules:
