@@ -17,7 +17,7 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
 
 RUN apk add bash
 
-RUN apk --update add openssh-client curl git \ 
+RUN apk --update add openssh-client curl git dos2unix \ 
     # core php modules
     php-apache2 php-cli php-phar php-openssl \
     # performance php modules
@@ -58,6 +58,8 @@ COPY etc/apache2/httpd.conf /etc/apache2/httpd.conf
 COPY etc/apache2/sites/ /etc/apache2/sites/
 COPY etc/php/php.ini /etc/php7/php.ini
 COPY scripts/entrypoint.sh /opt/entrypoint.sh
+
+RUN dos2unix /opt/entrypoint.sh
 
 EXPOSE 80
 
