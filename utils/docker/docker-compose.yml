@@ -2,60 +2,56 @@ version: "3.8"
 
 services:
   php:
+    container_name: php
     build:
       context: ./symfony-alpine-docker/
       dockerfile: Dockerfile
-      args:
-        AMQP_ENABLED: ${AMQP_ENABLED}
-        NODEJS_PACKAGE_MANAGER: ${NODEJS_PACKAGE_MANAGER}
-    container_name: php
     volumes:
       - var:/var/www/html/var
       - vendor:/var/www/html/vendor
       - node_modules:/var/www/html/node_modules
       - ../../app:/var/www/html/
     ports:
-      - "${APACHE_EXTERNAL_PORT:-8181}:80"
+      - "${APACHE_HTTP_PORT}:80"
     env_file:
       - .env
     networks:
       - app-network
 
   db:
-    container_name: db
-    image: postgres:${POSTGRES_VERSION:-13}
+    container_name: ${DB_HOST}
+    image: postgres:${DB_VERS}
     restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-app}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
     ports:
-        - ${CUSTOM_POSTGRES_PORT:-15432}:5432
+        - ${DB_EXT_PORT}:${DB_PORT}
     networks:
       - app-network
 
   rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    hostname: localhost
+    container_name: ${RQ_HOST}
+    image: rabbitmq:${RQ_VERS}
     environment:
-      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      RABBITMQ_ERLANG_COOKIE: ${RQ_COOKIE}
+      RABBITMQ_DEFAULT_USER: ${RQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RQ_PASS}
     ports:
-      - "${CUSTOM_RABBITMQ_MANAGER_PORT}:15672"
-      - "${CUSTOM_RABBITMQ_PORT}:5672"
+      - "${RQ_HTTP_PORT}:15672"
+      - "${RQ_AMQP_PORT}:5672"
     env_file:
       - .env
     networks:
       - app-network
 
   mailhog:
+    container_name: ${MH_HOST}
     image: mailhog/mailhog
-    container_name: mailhog
     ports:
-      - ${CUSTOM_UI_PORT}:8025
-      - ${CUSTOM_SMTP_PORT}:1025
+      - ${MH_HTTP_PORT}:8025
+      - ${MH_SMTP_PORT}:1025
     env_file:
       - .env
     networks:

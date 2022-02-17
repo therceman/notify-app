@@ -2,10 +2,6 @@ FROM alpine:3.15
 
 #### ARG & ENV
 
-# AMQP Extension Support (overriden by .env file)
-ARG AMQP_ENABLED=0
-# Node.js default Package Manager (overriden by .env file)
-ARG NODEJS_PACKAGE_MANAGER=yarn
 # Docker Git Identity (needed for composer)
 ARG DOCKER_GIT_EMAIL=docker@git.com
 ARG DOCKER_GIT_NAME=docker_git
@@ -30,7 +26,9 @@ RUN apk --update add openssh-client curl git dos2unix \
     # symfony optional/extra
     php-posix php-xmlwriter \
     # db modules
-    php-pdo php-pdo_pgsql php-pgsql && \
+    php-pdo php-pdo_pgsql php-pgsql \
+    # AMQP module
+    php7-pecl-amqp && \
     # other magic
     rm -f /var/cache/apk/* && \
     # composer install
@@ -38,12 +36,6 @@ RUN apk --update add openssh-client curl git dos2unix \
     --install-dir=/usr/local/bin --filename=composer && \
     # www dir setup
     mkdir -p /var/www/html/ && chown -R apache:apache /var/www/html
-
-# install NodeJS with Yarn or NPM
-RUN set -eux & apk add --no-cache nodejs ${NODEJS_PACKAGE_MANAGER}
-
-# install AMQP
-RUN if [ "${AMQP_ENABLED}" = "1" ] ; then apk add php7-pecl-amqp; fi
 
 # symfony cli install
 RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
