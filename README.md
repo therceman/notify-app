@@ -1,8 +1,8 @@
 # Symfony 5.4 Notify App
 
-API Service for sending notifications using RabbitMQ with Swagger API Documentation (NelmioApiDocBundle) built on Symfony 5.4
+Symfony API Service for sending email/sms notifications using RabbitMQ
 
-## Requirements
+# Requirements
 
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/)
@@ -20,42 +20,41 @@ API Service for sending notifications using RabbitMQ with Swagger API Documentat
 
 ## Setup
 
-Clone repository and navigate to its folder
+#### 1) Initialization
+
+Clone repository
 ```bash
 git clone https://github.com/therceman/notify-app.git
 ```
-
-### Configuration (Optional)
-
-You can change all variables and ports defined in the `utils/docker/.env` file.
-
-### Installation
-
-#### 1) Build & Run Docker
 
 Navigate to docker folder
 ```bash
 cd notify-app/utils/docker
 ```
 
-Build & Run Docker Image
+#### 2) Configuration (Optional)
+
+* Apache, PostgreSQL, RabbitMQ and MailHog can be configured in `utils/docker/.env` file
+* CORS Allowed Origins can be configured in `app/.env` file
+
+#### 3) Start
+
+Build & Run Docker
 ```bash
 docker-compose up -d --build
 ```
 
-#### 2) Install Symfony Dependencies & Init Database
-
-Connect to Docker container. Root path will be `var/www/` (Symfony root folder)
+Connect to Docker container
 ```bash
 docker-compose run --rm php bash
 ```
 
-Install Dependencies
+Install Symfony Dependencies
 ```
 composer install
 ```
 
-Initialize Database: 
+Migrate & Fill Database: 
 ```bash
 symfony console doctrine:migrations:migrate --no-interaction
 ```
@@ -63,14 +62,14 @@ symfony console doctrine:migrations:migrate --no-interaction
 symfony console doctrine:fixtures:load --no-interaction
 ```
 
-#### 3) Start Queue Worker (Message Consumer)
+Start Queue Worker (Message Consumer)
 ```bash
 symfony console messenger:consume async -vv
 ```
 
 ## Exposed Services
 
-### Swagger API Documentation
+### Swagger API Documentation (NelmioApiDocBundle)
 
 http://127.0.0.1:8181/api/doc
 
