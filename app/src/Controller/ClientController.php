@@ -2,22 +2,21 @@
 
 namespace App\Controller;
 
+use App\RequestHandler\ApiRequestHandler;
 use App\Entity\Client;
 use App\Utils\ApiJsonResponse;
 use OpenApi\Annotations as OA;
 use Symfony\Component\Uid\Uuid;
 use App\Repository\ClientRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Nelmio\ApiDocBundle\Annotation\Model;
 use Nelmio\ApiDocBundle\Annotation\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ClientController extends AbstractController
 {
@@ -29,10 +28,16 @@ class ClientController extends AbstractController
      * @var ClientRepository
      */
     private $repository;
+    
+    /** 
+     * @var ApiRequestHandler
+     */
+    private $requestHandler;
 
-    public function __construct(ClientRepository $clientRepository)
+    public function __construct(ClientRepository $clientRepository, ApiRequestHandler $apiRequestHandler)
     {
         $this->repository = $clientRepository;
+        $this->requestHandler = $apiRequestHandler;
     }
 
     /**
@@ -122,10 +127,9 @@ class ClientController extends AbstractController
      * 
      * @OA\Tag(name="Public API")
      */
-    public function add(Request $request, SerializerInterface $serializer, NormalizerInterface $normalizer, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
+    public function add(Request $request, NormalizerInterface $normalizer, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
-        /** @var Client */
-        $client = $serializer->deserialize($request->getContent(), Client::class, 'json', ['groups' => Client::GROUP__VIEW]);
+        $client = $this->requestHandler->createEntity($request, Client::class, Client::GROUP__VIEW);
 
         $errors = $validator->validate($client, null, [Client::GROUP__ADD]);
         if (count($errors) > 0) {
@@ -267,47 +271,34 @@ class ClientController extends AbstractController
      * )
      * 
      * @OA\Tag(name="Public API")
+     * 
+     * @ParamConverter("id", class="App\Entity\Client", options={"id": "id"})
      */
-    public function update($id, Request $request, SerializerInterface $serializer, NormalizerInterface $normalizer, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
+    public function updateAction(Client $client, Request $request, NormalizerInterface $normalizer, ManagerRegistry $doctrine, ValidatorInterface $validator): Response
     {
-        if (false === Uuid::isValid($id))
-            return ApiJsonResponse::error(self::ERROR__WRONG_CLIENT_ID_FORMAT, Response::HTTP_BAD_REQUEST);
+        // TODO use DTO for inputs
+        // split validation for DTO and for Entity
+        // first will be DTO and only then Entity (because Entity validation triggers Database)
 
-        $existingClient = $this->repository->find($id);
+        // TODO handle all exceptions and throw them as json response
 
-        if (null === $existingClient)
-            return ApiJsonResponse::error(self::ERROR__CLIENT_NOT_FOUND, Response::HTTP_NOT_FOUND);
+        $client = $this->requestHandler->populateEntity($request, $client, Client::GROUP__VIEW);
 
-        /** @var Client */
-        $client = $serializer->deserialize($request->getContent(), Client::class, 'json', ['groups' => Client::GROUP__VIEW]);
+        $errors = $validator->validate($client, null, [Client::GROUP__UPDATE]);
 
-        $validation_client = clone $client;
-
-        if ($client->getPhoneNumber() === $existingClient->getPhoneNumber())
-            $validation_client->setPhoneNumber('');
-
-        if ($client->getEmail() === $existingClient->getEmail())
-            $validation_client->setEmail('');
-
-        $errors = $validator->validate($validation_client, null, [Client::GROUP__UPDATE]);
         if (count($errors) > 0) {
             return ApiJsonResponse::error($errors[0]->getMessage(), Response::HTTP_NOT_ACCEPTABLE, $errors[0]->getPropertyPath());
         }
-
-        $existingClient->setFirstName($client->getFirstName());
-        $existingClient->setLastName($client->getLastName());
-
-        if (false === empty($client->getEmail()))
-            $existingClient->setEmail($client->getEmail());
-
-        if (false === empty($client->getPhoneNumber()))
-            $existingClient->setPhoneNumber($client->getPhoneNumber());
+        
+        // TODO use services
+        // https://www.thinktocode.com/2019/01/24/doctrine-repositories-should-be-collections-without-flush/
 
         $entityManager = $doctrine->getManager();
-        $entityManager->persist($existingClient);
-        $entityManager->flush();
+        $entityManager->persist($client);
 
-        $updated_client = $normalizer->normalize($existingClient, null, ['groups' => Client::GROUP__VIEW]);
+        $updated_client = $normalizer->normalize($client, null, ['groups' => Client::GROUP__VIEW]);
+
+        // TODO use DTO for output ?
 
         return ApiJsonResponse::ok($updated_client);
     }
