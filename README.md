@@ -16,7 +16,7 @@ Symfony API Service for sending email/sms notifications using RabbitMQ
 
 ## Demonstration Video
 
-[![Watch the video](https://github.com/therceman/notify/blob/master/home_task_youtube_preview.png)](https://www.youtube.com/watch?v=PuEPw3PEklE)
+[![Watch the video](https://github.com/therceman/notify-app/blob/master/app/public/home_task_youtube_preview.png)](https://www.youtube.com/watch?v=PuEPw3PEklE)
 
 ## Setup
 
